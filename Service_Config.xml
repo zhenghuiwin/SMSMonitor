@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mtss-config desc="配置文件必须用UTF-8编码格式，否则将解析失败！">
+	<system>
+		<title>短信业务管理平台</title>
+		<root desc="群组树形菜单根节点名">四川气象</root>
+		<arealist desc="地区列表，用逗号分隔">成都,德阳,绵阳,内江,资阳,南充,宜宾,乐山,自贡,遂宁,泸州,眉山,巴中,广安,达州,雅安,攀枝花,西昌,马尔康,广元,康定</arealist>
+		<oncegetnum desc="客服主界面一次提取用户上行消息数">10</oncegetnum>
+		<autodeleteinfo desc="处理完毕后自动删除记录，1是0否">1</autodeleteinfo> 
+	</system>
+	<mobileconfig>
+		<servicedbconn desc="业务库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=CM_CENTER;Data Source=128.128.128.31;</servicedbconn>
+		<billdbconn desc="话单库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=CM_BILL;Data Source=128.128.128.70;</billdbconn>
+		<procorder desc="定制取消过程">FunXp_Do_WriteOrderInfo_Mobile</procorder>
+		<procquery desc="点播业务过程">FunXp_Do_QueryService</procquery>
+		<procsendsms desc="发送短信过程">FunXp_Do_SendSms</procsendsms>
+		<usercheck desc="三位数号段列表，多个号段用逗号分隔">134,135,136,137,138,139,147,150,151,157,152,158,159,187,188,182,183</usercheck>
+		<doreply desc="客服定制取消是否回复消息,1是0否">0</doreply>
+		<mobilefortest desc="测试号码">13880696121</mobilefortest>
+		<isorderslip desc="是否启用了定制用户分表，若使用了则定制用户查询取视图vwOrderInfo。1是0否">0</isorderslip>
+	</mobileconfig>
+	<unicomconfig>
+		<servicedbconn desc="业务库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=UN_CENTER;Data Source=128.128.128.41;</servicedbconn>
+		<billdbconn desc="话单库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=UN_BILL;Data Source=128.128.128.41;</billdbconn>
+		<servicedbconn2 desc="业务库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=UN_CENTER;Data Source=128.128.128.41;</servicedbconn2>
+		<billdbconn2 desc="话单库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=UN_BILL;Data Source=128.128.128.41;</billdbconn2>
+		<procorder desc="定制取消过程">FunXp_Do_WriteOrderInfo_Unicom</procorder>
+		<procquery desc="点播业务过程">FunXp_Do_QueryService</procquery>
+		<procsendsms desc="发送短信过程">FunXp_Do_SendSms</procsendsms>
+		<usercheck desc="三位数号段列表，多个号段用逗号分隔">130,131,132,155,156,186,185</usercheck>
+		<doreply desc="客服定制取消是否回复消息,1是0否">0</doreply>
+		<mobilefortest desc="测试号码">13251497689</mobilefortest>
+		<isorderslip desc="是否启用了定制用户分表，若使用了则定制用户查询取视图vwOrderInfo。1是0否">0</isorderslip>
+	</unicomconfig>
+	<telecomconfig>
+		<servicedbconn desc="业务库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=CT_CENTER;Data Source=128.128.128.51;</servicedbconn>
+		<billdbconn desc="话单库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=PHS_BILL;Data Source=128.128.128.51;</billdbconn>
+		<procorder desc="定制取消过程">FunXp_Do_WriteOrderInfo</procorder>
+		<procquery desc="点播业务过程">FunXp_Do_QueryService</procquery>
+		<procsendsms desc="发送短信过程">FunXp_Do_SendSms</procsendsms>
+		<usercheck desc="三位数号段列表，多个号段用逗号分隔">189,133,153,180</usercheck>
+		<doreply desc="客服定制取消是否回复消息,1是0否">0</doreply>
+		<mobilefortest desc="测试号码">18982193989</mobilefortest>
+		<isorderslip desc="是否启用了定制用户分表，若使用了则定制用户查询取视图vwOrderInfo。1是0否">0</isorderslip>
+	</telecomconfig>	
+	<phsconfig>
+		<servicedbconn desc="业务库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=PHS_CENTER;Data Source=128.128.128.51;</servicedbconn>
+		<billdbconn desc="话单库连接串">Provider=SQLOLEDB.1;Password=dxsms;Persist Security Info=True;User ID=sa;Initial Catalog=PHS_BILL;Data Source=128.128.128.51;</billdbconn>
+		<procorder desc="定制取消过程">FunXp_Do_WriteOrderInfo_PHS</procorder>
+		<procquery desc="点播业务过程">FunXp_Do_QueryService</procquery>
+		<procsendsms desc="发送短信过程">FunXp_Do_SendSms</procsendsms>
+		<usercheck desc="三位数号段列表，多个号段用逗号分隔">028,081,082,083</usercheck>
+		<doreply desc="客服定制取消是否回复消息,1是0否">0</doreply>
+		<mobilefortest desc="测试号码"></mobilefortest>
+		<isorderslip desc="是否启用了定制用户分表，若使用了则定制用户查询取视图vwOrderInfo。1是0否">0</isorderslip>
+	</phsconfig>
+	<default desc="默认协议参数">
+		<msgfrom>10628121</msgfrom>
+		<msgcorpid>923097</msgcorpid>
+		<msgfeetype>01</msgfeetype>
+		<msgfeecode>0</msgfeecode>
+		<msgservice>-FZFREE</msgservice>
+		<msgserviceu></msgserviceu>
+		<msgreport>1</msgreport>
+		<msgdsc>8</msgdsc>
+	</default>
+</mtss-config>

@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		672170D51ADA6C730087A926 /* CVCalendarContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */; };
+		672170D61ADA6C730087A926 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C21ADA6C730087A926 /* CVCalendarContentViewController.swift */; };
+		672170D71ADA6C730087A926 /* CVCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C31ADA6C730087A926 /* CVCalendarDayView.swift */; };
+		672170D81ADA6C730087A926 /* CVCalendarDayViewControlCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C41ADA6C730087A926 /* CVCalendarDayViewControlCoordinator.swift */; };
+		672170D91ADA6C730087A926 /* CVCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C51ADA6C730087A926 /* CVCalendarManager.swift */; };
+		672170DA1ADA6C730087A926 /* CVCalendarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C61ADA6C730087A926 /* CVCalendarMenuView.swift */; };
+		672170DB1ADA6C730087A926 /* CVCalendarMonthContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C71ADA6C730087A926 /* CVCalendarMonthContentView.swift */; };
+		672170DC1ADA6C730087A926 /* CVCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C81ADA6C730087A926 /* CVCalendarMonthView.swift */; };
+		672170DD1ADA6C730087A926 /* CVCalendarRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C91ADA6C730087A926 /* CVCalendarRenderer.swift */; };
+		672170DE1ADA6C730087A926 /* CVCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CA1ADA6C730087A926 /* CVCalendarView.swift */; };
+		672170DF1ADA6C730087A926 /* CVCalendarViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CB1ADA6C730087A926 /* CVCalendarViewAnimator.swift */; };
+		672170E01ADA6C730087A926 /* CVCalendarViewAnimatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CC1ADA6C730087A926 /* CVCalendarViewAnimatorDelegate.swift */; };
+		672170E11ADA6C730087A926 /* CVCalendarViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CD1ADA6C730087A926 /* CVCalendarViewAppearance.swift */; };
+		672170E21ADA6C730087A926 /* CVCalendarViewAppearanceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CE1ADA6C730087A926 /* CVCalendarViewAppearanceDelegate.swift */; };
+		672170E31ADA6C730087A926 /* CVCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170CF1ADA6C730087A926 /* CVCalendarViewDelegate.swift */; };
+		672170E41ADA6C730087A926 /* CVCalendarWeekContentRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170D01ADA6C730087A926 /* CVCalendarWeekContentRecovery.swift */; };
+		672170E51ADA6C730087A926 /* CVCalendarWeekContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170D11ADA6C730087A926 /* CVCalendarWeekContentView.swift */; };
+		672170E61ADA6C730087A926 /* CVCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170D21ADA6C730087A926 /* CVCalendarWeekView.swift */; };
+		672170E71ADA6C730087A926 /* CVCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170D31ADA6C730087A926 /* CVCircleView.swift */; };
+		672170E81ADA6C730087A926 /* CVDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170D41ADA6C730087A926 /* CVDate.swift */; };
+		675E833A1AB48E8F00D339B2 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E83391AB48E8F00D339B2 /* BackgroundView.swift */; };
+		677EA6AD1AA4095600B6CE2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 677EA6AC1AA4095600B6CE2C /* Images.xcassets */; };
+		677EA6B01AA4095600B6CE2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677EA6AE1AA4095600B6CE2C /* LaunchScreen.xib */; };
+		677EA6BC1AA4095600B6CE2C /* SMSMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6BB1AA4095600B6CE2C /* SMSMonitorTests.swift */; };
+		677EA6C91AA40A2500B6CE2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6C51AA40A2500B6CE2C /* AppDelegate.swift */; };
+		677EA6CA1AA40A2500B6CE2C /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6C61AA40A2500B6CE2C /* GraphView.swift */; };
+		677EA6CB1AA40A2500B6CE2C /* ZHWScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6C71AA40A2500B6CE2C /* ZHWScrollView.swift */; };
+		677EA6CC1AA40A2500B6CE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6C81AA40A2500B6CE2C /* ViewController.swift */; };
+		677EA6CF1AA40A3200B6CE2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677EA6CD1AA40A3200B6CE2C /* Main.storyboard */; };
+		6788C8FA1AD9640A00F6611B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6788C8F91AD9640A00F6611B /* CalendarViewController.swift */; };
+		679B89A61AEFA172008A7EBF /* GraphLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B89A51AEFA172008A7EBF /* GraphLayerView.swift */; };
+		67C2D5FF1AE40E4600EC91FD /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C2D5FE1AE40E4600EC91FD /* SharedData.swift */; };
+		67D626041ACDA64600551E6A /* cal24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D626031ACDA64600551E6A /* cal24x24.png */; };
+		67D626061ACDA6C100551E6A /* refresh24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D626051ACDA6C100551E6A /* refresh24x24.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		677EA6B61AA4095600B6CE2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 677EA6981AA4095600B6CE2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 677EA69F1AA4095600B6CE2C;
+			remoteInfo = SMSMonitor;
+		};
+		67F5B0331B8B15A60015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		67F5B0351B8B15A60015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		67F5B0371B8B15A60015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		67F5B0391B8B15A60015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		67F5B0441B8B162A0015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		67F5B04B1B8B17190015B283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DD67C0A1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentDelegate.swift; sourceTree = "<group>"; };
+		672170C21ADA6C730087A926 /* CVCalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentViewController.swift; sourceTree = "<group>"; };
+		672170C31ADA6C730087A926 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayView.swift; sourceTree = "<group>"; };
+		672170C41ADA6C730087A926 /* CVCalendarDayViewControlCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayViewControlCoordinator.swift; sourceTree = "<group>"; };
+		672170C51ADA6C730087A926 /* CVCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarManager.swift; sourceTree = "<group>"; };
+		672170C61ADA6C730087A926 /* CVCalendarMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarMenuView.swift; sourceTree = "<group>"; };
+		672170C71ADA6C730087A926 /* CVCalendarMonthContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarMonthContentView.swift; sourceTree = "<group>"; };
+		672170C81ADA6C730087A926 /* CVCalendarMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarMonthView.swift; sourceTree = "<group>"; };
+		672170C91ADA6C730087A926 /* CVCalendarRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarRenderer.swift; sourceTree = "<group>"; };
+		672170CA1ADA6C730087A926 /* CVCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarView.swift; sourceTree = "<group>"; };
+		672170CB1ADA6C730087A926 /* CVCalendarViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarViewAnimator.swift; sourceTree = "<group>"; };
+		672170CC1ADA6C730087A926 /* CVCalendarViewAnimatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarViewAnimatorDelegate.swift; sourceTree = "<group>"; };
+		672170CD1ADA6C730087A926 /* CVCalendarViewAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarViewAppearance.swift; sourceTree = "<group>"; };
+		672170CE1ADA6C730087A926 /* CVCalendarViewAppearanceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarViewAppearanceDelegate.swift; sourceTree = "<group>"; };
+		672170CF1ADA6C730087A926 /* CVCalendarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarViewDelegate.swift; sourceTree = "<group>"; };
+		672170D01ADA6C730087A926 /* CVCalendarWeekContentRecovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarWeekContentRecovery.swift; sourceTree = "<group>"; };
+		672170D11ADA6C730087A926 /* CVCalendarWeekContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarWeekContentView.swift; sourceTree = "<group>"; };
+		672170D21ADA6C730087A926 /* CVCalendarWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarWeekView.swift; sourceTree = "<group>"; };
+		672170D31ADA6C730087A926 /* CVCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCircleView.swift; sourceTree = "<group>"; };
+		672170D41ADA6C730087A926 /* CVDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDate.swift; sourceTree = "<group>"; };
+		675E83391AB48E8F00D339B2 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		677EA6A01AA4095600B6CE2C /* SMSMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		677EA6A41AA4095600B6CE2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		677EA6AC1AA4095600B6CE2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		677EA6AF1AA4095600B6CE2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		677EA6B51AA4095600B6CE2C /* SMSMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMSMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		677EA6BA1AA4095600B6CE2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		677EA6BB1AA4095600B6CE2C /* SMSMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSMonitorTests.swift; sourceTree = "<group>"; };
+		677EA6C51AA40A2500B6CE2C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		677EA6C61AA40A2500B6CE2C /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		677EA6C71AA40A2500B6CE2C /* ZHWScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHWScrollView.swift; sourceTree = "<group>"; };
+		677EA6C81AA40A2500B6CE2C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		677EA6CE1AA40A3200B6CE2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6788C8F91AD9640A00F6611B /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		679B89A51AEFA172008A7EBF /* GraphLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphLayerView.swift; sourceTree = "<group>"; };
+		67C2D5FE1AE40E4600EC91FD /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		67D626031ACDA64600551E6A /* cal24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal24x24.png; sourceTree = "<group>"; };
+		67D626051ACDA6C100551E6A /* refresh24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh24x24.png; sourceTree = "<group>"; };
+		67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "SMSMonitor/Alamofire-master 2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		677EA69D1AA4095600B6CE2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		677EA6B21AA4095600B6CE2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		672170C01ADA6C730087A926 /* CVCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */,
+				672170C21ADA6C730087A926 /* CVCalendarContentViewController.swift */,
+				672170C31ADA6C730087A926 /* CVCalendarDayView.swift */,
+				672170C41ADA6C730087A926 /* CVCalendarDayViewControlCoordinator.swift */,
+				672170C51ADA6C730087A926 /* CVCalendarManager.swift */,
+				672170C61ADA6C730087A926 /* CVCalendarMenuView.swift */,
+				672170C71ADA6C730087A926 /* CVCalendarMonthContentView.swift */,
+				672170C81ADA6C730087A926 /* CVCalendarMonthView.swift */,
+				672170C91ADA6C730087A926 /* CVCalendarRenderer.swift */,
+				672170CA1ADA6C730087A926 /* CVCalendarView.swift */,
+				672170CB1ADA6C730087A926 /* CVCalendarViewAnimator.swift */,
+				672170CC1ADA6C730087A926 /* CVCalendarViewAnimatorDelegate.swift */,
+				672170CD1ADA6C730087A926 /* CVCalendarViewAppearance.swift */,
+				672170CE1ADA6C730087A926 /* CVCalendarViewAppearanceDelegate.swift */,
+				672170CF1ADA6C730087A926 /* CVCalendarViewDelegate.swift */,
+				672170D01ADA6C730087A926 /* CVCalendarWeekContentRecovery.swift */,
+				672170D11ADA6C730087A926 /* CVCalendarWeekContentView.swift */,
+				672170D21ADA6C730087A926 /* CVCalendarWeekView.swift */,
+				672170D31ADA6C730087A926 /* CVCircleView.swift */,
+				672170D41ADA6C730087A926 /* CVDate.swift */,
+			);
+			path = CVCalendar;
+			sourceTree = "<group>";
+		};
+		677EA6971AA4095600B6CE2C = {
+			isa = PBXGroup;
+			children = (
+				67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */,
+				677EA6A21AA4095600B6CE2C /* SMSMonitor */,
+				677EA6B81AA4095600B6CE2C /* SMSMonitorTests */,
+				677EA6A11AA4095600B6CE2C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		677EA6A11AA4095600B6CE2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				677EA6A01AA4095600B6CE2C /* SMSMonitor.app */,
+				677EA6B51AA4095600B6CE2C /* SMSMonitorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		677EA6A21AA4095600B6CE2C /* SMSMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				672170C01ADA6C730087A926 /* CVCalendar */,
+				677EA6CD1AA40A3200B6CE2C /* Main.storyboard */,
+				675E83391AB48E8F00D339B2 /* BackgroundView.swift */,
+				677EA6C51AA40A2500B6CE2C /* AppDelegate.swift */,
+				6788C8F91AD9640A00F6611B /* CalendarViewController.swift */,
+				677EA6C61AA40A2500B6CE2C /* GraphView.swift */,
+				677EA6C71AA40A2500B6CE2C /* ZHWScrollView.swift */,
+				677EA6C81AA40A2500B6CE2C /* ViewController.swift */,
+				677EA6A31AA4095600B6CE2C /* Supporting Files */,
+				67C2D5FE1AE40E4600EC91FD /* SharedData.swift */,
+				679B89A51AEFA172008A7EBF /* GraphLayerView.swift */,
+			);
+			path = SMSMonitor;
+			sourceTree = "<group>";
+		};
+		677EA6A31AA4095600B6CE2C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67D626051ACDA6C100551E6A /* refresh24x24.png */,
+				67D626031ACDA64600551E6A /* cal24x24.png */,
+				677EA6AE1AA4095600B6CE2C /* LaunchScreen.xib */,
+				677EA6AC1AA4095600B6CE2C /* Images.xcassets */,
+				677EA6A41AA4095600B6CE2C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		677EA6B81AA4095600B6CE2C /* SMSMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				677EA6BB1AA4095600B6CE2C /* SMSMonitorTests.swift */,
+				677EA6B91AA4095600B6CE2C /* Supporting Files */,
+			);
+			path = SMSMonitorTests;
+			sourceTree = "<group>";
+		};
+		677EA6B91AA4095600B6CE2C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				677EA6BA1AA4095600B6CE2C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67F5B02D1B8B15A60015B283 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67F5B0341B8B15A60015B283 /* Alamofire.framework */,
+				67F5B0361B8B15A60015B283 /* Alamofire.framework */,
+				67F5B0381B8B15A60015B283 /* Alamofire iOS Tests.xctest */,
+				67F5B03A1B8B15A60015B283 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		677EA69F1AA4095600B6CE2C /* SMSMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 677EA6BF1AA4095600B6CE2C /* Build configuration list for PBXNativeTarget "SMSMonitor" */;
+			buildPhases = (
+				677EA69C1AA4095600B6CE2C /* Sources */,
+				677EA69D1AA4095600B6CE2C /* Frameworks */,
+				677EA69E1AA4095600B6CE2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67F5B04C1B8B17190015B283 /* PBXTargetDependency */,
+				67F5B0451B8B162A0015B283 /* PBXTargetDependency */,
+			);
+			name = SMSMonitor;
+			productName = SMSMonitor;
+			productReference = 677EA6A01AA4095600B6CE2C /* SMSMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		677EA6B41AA4095600B6CE2C /* SMSMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 677EA6C21AA4095600B6CE2C /* Build configuration list for PBXNativeTarget "SMSMonitorTests" */;
+			buildPhases = (
+				677EA6B11AA4095600B6CE2C /* Sources */,
+				677EA6B21AA4095600B6CE2C /* Frameworks */,
+				677EA6B31AA4095600B6CE2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				677EA6B71AA4095600B6CE2C /* PBXTargetDependency */,
+			);
+			name = SMSMonitorTests;
+			productName = SMSMonitorTests;
+			productReference = 677EA6B51AA4095600B6CE2C /* SMSMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		677EA6981AA4095600B6CE2C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = zhenghuiwin;
+				TargetAttributes = {
+					677EA69F1AA4095600B6CE2C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					677EA6B41AA4095600B6CE2C = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 677EA69F1AA4095600B6CE2C;
+					};
+				};
+			};
+			buildConfigurationList = 677EA69B1AA4095600B6CE2C /* Build configuration list for PBXProject "SMSMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 677EA6971AA4095600B6CE2C;
+			productRefGroup = 677EA6A11AA4095600B6CE2C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 67F5B02D1B8B15A60015B283 /* Products */;
+					ProjectRef = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				677EA69F1AA4095600B6CE2C /* SMSMonitor */,
+				677EA6B41AA4095600B6CE2C /* SMSMonitorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		67F5B0341B8B15A60015B283 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 67F5B0331B8B15A60015B283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67F5B0361B8B15A60015B283 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 67F5B0351B8B15A60015B283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67F5B0381B8B15A60015B283 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 67F5B0371B8B15A60015B283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67F5B03A1B8B15A60015B283 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 67F5B0391B8B15A60015B283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		677EA69E1AA4095600B6CE2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677EA6CF1AA40A3200B6CE2C /* Main.storyboard in Resources */,
+				677EA6B01AA4095600B6CE2C /* LaunchScreen.xib in Resources */,
+				67D626041ACDA64600551E6A /* cal24x24.png in Resources */,
+				67D626061ACDA6C100551E6A /* refresh24x24.png in Resources */,
+				677EA6AD1AA4095600B6CE2C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		677EA6B31AA4095600B6CE2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		677EA69C1AA4095600B6CE2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				672170E81ADA6C730087A926 /* CVDate.swift in Sources */,
+				675E833A1AB48E8F00D339B2 /* BackgroundView.swift in Sources */,
+				672170D71ADA6C730087A926 /* CVCalendarDayView.swift in Sources */,
+				677EA6C91AA40A2500B6CE2C /* AppDelegate.swift in Sources */,
+				677EA6CB1AA40A2500B6CE2C /* ZHWScrollView.swift in Sources */,
+				672170DC1ADA6C730087A926 /* CVCalendarMonthView.swift in Sources */,
+				672170DB1ADA6C730087A926 /* CVCalendarMonthContentView.swift in Sources */,
+				6788C8FA1AD9640A00F6611B /* CalendarViewController.swift in Sources */,
+				677EA6CC1AA40A2500B6CE2C /* ViewController.swift in Sources */,
+				672170E11ADA6C730087A926 /* CVCalendarViewAppearance.swift in Sources */,
+				672170DF1ADA6C730087A926 /* CVCalendarViewAnimator.swift in Sources */,
+				672170E31ADA6C730087A926 /* CVCalendarViewDelegate.swift in Sources */,
+				672170E21ADA6C730087A926 /* CVCalendarViewAppearanceDelegate.swift in Sources */,
+				672170E01ADA6C730087A926 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
+				672170E61ADA6C730087A926 /* CVCalendarWeekView.swift in Sources */,
+				672170DD1ADA6C730087A926 /* CVCalendarRenderer.swift in Sources */,
+				672170D91ADA6C730087A926 /* CVCalendarManager.swift in Sources */,
+				672170E41ADA6C730087A926 /* CVCalendarWeekContentRecovery.swift in Sources */,
+				67C2D5FF1AE40E4600EC91FD /* SharedData.swift in Sources */,
+				672170D61ADA6C730087A926 /* CVCalendarContentViewController.swift in Sources */,
+				677EA6CA1AA40A2500B6CE2C /* GraphView.swift in Sources */,
+				679B89A61AEFA172008A7EBF /* GraphLayerView.swift in Sources */,
+				672170D51ADA6C730087A926 /* CVCalendarContentDelegate.swift in Sources */,
+				672170E71ADA6C730087A926 /* CVCircleView.swift in Sources */,
+				672170E51ADA6C730087A926 /* CVCalendarWeekContentView.swift in Sources */,
+				672170DE1ADA6C730087A926 /* CVCalendarView.swift in Sources */,
+				672170DA1ADA6C730087A926 /* CVCalendarMenuView.swift in Sources */,
+				672170D81ADA6C730087A926 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		677EA6B11AA4095600B6CE2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677EA6BC1AA4095600B6CE2C /* SMSMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		677EA6B71AA4095600B6CE2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 677EA69F1AA4095600B6CE2C /* SMSMonitor */;
+			targetProxy = 677EA6B61AA4095600B6CE2C /* PBXContainerItemProxy */;
+		};
+		67F5B0451B8B162A0015B283 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 67F5B0441B8B162A0015B283 /* PBXContainerItemProxy */;
+		};
+		67F5B04C1B8B17190015B283 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire OSX";
+			targetProxy = 67F5B04B1B8B17190015B283 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		677EA6AE1AA4095600B6CE2C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				677EA6AF1AA4095600B6CE2C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		677EA6CD1AA40A3200B6CE2C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				677EA6CE1AA40A3200B6CE2C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		677EA6BD1AA4095600B6CE2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		677EA6BE1AA4095600B6CE2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		677EA6C01AA4095600B6CE2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SMSMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		677EA6C11AA4095600B6CE2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SMSMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		677EA6C31AA4095600B6CE2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SMSMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SMSMonitor.app/SMSMonitor";
+			};
+			name = Debug;
+		};
+		677EA6C41AA4095600B6CE2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SMSMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SMSMonitor.app/SMSMonitor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		677EA69B1AA4095600B6CE2C /* Build configuration list for PBXProject "SMSMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				677EA6BD1AA4095600B6CE2C /* Debug */,
+				677EA6BE1AA4095600B6CE2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		677EA6BF1AA4095600B6CE2C /* Build configuration list for PBXNativeTarget "SMSMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				677EA6C01AA4095600B6CE2C /* Debug */,
+				677EA6C11AA4095600B6CE2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		677EA6C21AA4095600B6CE2C /* Build configuration list for PBXNativeTarget "SMSMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				677EA6C31AA4095600B6CE2C /* Debug */,
+				677EA6C41AA4095600B6CE2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 677EA6981AA4095600B6CE2C /* Project object */;
+}
