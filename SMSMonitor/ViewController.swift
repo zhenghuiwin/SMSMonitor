@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ViewPassDataProtocol {
 
       let heightOfMainScrollView: CGFloat = 1260
       
@@ -36,8 +36,31 @@ class ViewController: UIViewController {
      
       @IBOutlet weak var barItem: UIBarButtonItem!
       
+      let dateFormatter = NSDateFormatter()
+      
+      
+      // The default date is today
+      private var _selectedDate: String = ""
+      var selectedDate: String {
+            set {
+                  _selectedDate = newValue
+            }
+            get {
+                  if _selectedDate == "" {
+                        // today
+                        dateFormatter.dateFormat = "yyyy/MM/dd"
+                        _selectedDate = dateFormatter.stringFromDate( NSDate() )
+                  }
+                  
+                  return _selectedDate
+            }
+      }
+      
+      
+      
       var _graphViews: [ GraphView ] = []
       
+
       
       override func viewDidLoad() {
             super.viewDidLoad()
@@ -45,7 +68,6 @@ class ViewController: UIViewController {
             
             self.navigationController!.navigationBar.barTintColor = UIColor( red: 68 / 255, green: 128 / 255, blue: 240 / 255, alpha: 1 )
             self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-
       
       }
       
@@ -64,6 +86,8 @@ class ViewController: UIViewController {
             
             mainScrollView.contentSize = CGSize( width: mainScrollView.bounds.size.width, height: heightOfMainScrollView )
             
+            // TODO: TEST
+            println( "selected date is \(self.selectedDate)" )
 
             Alamofire.request(.GET, "http://114.215.125.44:9002/hd")
                   .responseJSON { _, _, JSON, _ in
@@ -115,6 +139,22 @@ class ViewController: UIViewController {
             self.didRoateForGraphLayerView( telcomGView )
             
             self.didRoateForGraphLayerView( mobileOwnGView )
+      }
+      
+      // MARK: - ViewPassDataProtocol methods
+      func setData( data: String ) {
+            self.selectedDate = data
+      }
+      
+      func data() -> String {
+            return self.selectedDate
+      }
+      
+      // MARK: -Navigation
+      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if let destViewController = segue.destinationViewController as? CalendarViewController {
+                  destViewController.delegate = self
+            }
       }
       
       // MARK: - private method
@@ -176,5 +216,8 @@ class ViewController: UIViewController {
             
       }
       
+      
+      
+
 }
 

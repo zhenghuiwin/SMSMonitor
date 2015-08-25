@@ -38,6 +38,7 @@
 		677EA6CF1AA40A3200B6CE2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677EA6CD1AA40A3200B6CE2C /* Main.storyboard */; };
 		6788C8FA1AD9640A00F6611B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6788C8F91AD9640A00F6611B /* CalendarViewController.swift */; };
 		679B89A61AEFA172008A7EBF /* GraphLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B89A51AEFA172008A7EBF /* GraphLayerView.swift */; };
+		67AE27FF1B8C623400C991E1 /* ViewPassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */; };
 		67C2D5FF1AE40E4600EC91FD /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C2D5FE1AE40E4600EC91FD /* SharedData.swift */; };
 		67D626041ACDA64600551E6A /* cal24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D626031ACDA64600551E6A /* cal24x24.png */; };
 		67D626061ACDA6C100551E6A /* refresh24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D626051ACDA6C100551E6A /* refresh24x24.png */; };
@@ -131,6 +132,7 @@
 		677EA6CE1AA40A3200B6CE2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6788C8F91AD9640A00F6611B /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		679B89A51AEFA172008A7EBF /* GraphLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphLayerView.swift; sourceTree = "<group>"; };
+		67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPassDataProtocol.swift; sourceTree = "<group>"; };
 		67C2D5FE1AE40E4600EC91FD /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		67D626031ACDA64600551E6A /* cal24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal24x24.png; sourceTree = "<group>"; };
 		67D626051ACDA6C100551E6A /* refresh24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh24x24.png; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				677EA6A31AA4095600B6CE2C /* Supporting Files */,
 				67C2D5FE1AE40E4600EC91FD /* SharedData.swift */,
 				679B89A51AEFA172008A7EBF /* GraphLayerView.swift */,
+				67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */,
 			);
 			path = SMSMonitor;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				67C2D5FF1AE40E4600EC91FD /* SharedData.swift in Sources */,
 				672170D61ADA6C730087A926 /* CVCalendarContentViewController.swift in Sources */,
 				677EA6CA1AA40A2500B6CE2C /* GraphView.swift in Sources */,
+				67AE27FF1B8C623400C991E1 /* ViewPassDataProtocol.swift in Sources */,
 				679B89A61AEFA172008A7EBF /* GraphLayerView.swift in Sources */,
 				672170D51ADA6C730087A926 /* CVCalendarContentDelegate.swift in Sources */,
 				672170E71ADA6C730087A926 /* CVCircleView.swift in Sources */,

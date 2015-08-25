@@ -19,6 +19,25 @@ class CalendarViewController: UIViewController, CVCalendarViewDelegate {
       @IBOutlet weak var currentYearLabel: UILabel!
       @IBOutlet weak var currentMonthLabel: UILabel!
       
+      private var _selectedDate: CVDate = CVDate( date: NSDate() )
+      
+      var selectedDate: String {
+            get {
+                  return convertCVDateToString( _selectedDate )
+            }
+      }
+      
+      private var _delegate: ViewPassDataProtocol?
+      var delegate: ViewPassDataProtocol? {
+            set {
+                  _delegate = newValue
+            }
+            
+            get {
+                  return _delegate
+            }
+      }
+      
       
       let _monthMap: [ Int : String ] = [ 1 : "JAN", 2 : "FEB", 3 : "MAR", 4 : "APR", 5 : "MAY", 6 : "JUN", 7 : "JUL", 8 : "AUG", 9 : "SEP", 10 : "OCT", 11 : "NOV", 12 : "DEC" ]
 
@@ -38,9 +57,9 @@ class CalendarViewController: UIViewController, CVCalendarViewDelegate {
             self.menuView.commitMenuViewUpdate()
             self.calendarView.commitCalendarViewResize()
 
-            let sharedData = SharedData.sharedInstance
-            self.calendarView.toggleMonthViewWithDate( sharedData.selectedDate.toDate()! )
-            updateTheDateLabel( sharedData.selectedDate )
+            let sharedData = SharedData.sharedInstance  // TODO: Will be removed
+            self.calendarView.toggleMonthViewWithDate( _selectedDate.toDate()! )// self.calendarView.toggleMonthViewWithDate( sharedData.selectedDate.toDate()! )
+            updateTheDateLabel( _selectedDate ) // updateTheDateLabel( sharedData.selectedDate )
 
             //            self.calendarView.heightLightCurrentDay()
       }
@@ -56,13 +75,20 @@ class CalendarViewController: UIViewController, CVCalendarViewDelegate {
       }
       
       
+      
+      
+      // MARK: -Private Methods
       private func updateTheDateLabel( cvdate: CVDate ) {
-            selectedDateLabel.text = "\(cvdate.year!)-\(cvdate.month!)-\(cvdate.day!)"
+            selectedDateLabel.text = convertCVDateToString( cvdate )
             
             if currentYearLabel.text == "" || currentMonthLabel.text == "" {
                   currentYearLabel.text = "\(cvdate.year!)"
                   currentMonthLabel.text = _monthMap[ cvdate.month! ]
             }
+      }
+      
+      private func convertCVDateToString( cvdate: CVDate ) -> String {
+            return "\(cvdate.year!)-\(cvdate.month!)-\(cvdate.day!)";
       }
       
       // MARK: - Calendar view delegate
@@ -72,7 +98,10 @@ class CalendarViewController: UIViewController, CVCalendarViewDelegate {
       
       func didSelectDayView(dayView: CVCalendarDayView) {
             if let cvdate = dayView.date {
-                  SharedData.sharedInstance.selectedDate = cvdate
+                  SharedData.sharedInstance.selectedDate = cvdate // TODO: Will be removed
+                  _selectedDate = cvdate
+                  
+                  self.delegate?.setData( self.selectedDate )
                   updateTheDateLabel( cvdate )
             }
       }
@@ -97,16 +126,6 @@ class CalendarViewController: UIViewController, CVCalendarViewDelegate {
       func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> UIColor {
             return UIColor.blueColor()
       }
-
-
-  /*
-      // MARK: - Navigation
-
-      // In a storyboard-based application, you will often want to do a little preparation before navigation
-      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-      }
- */
+ 
 
 }
