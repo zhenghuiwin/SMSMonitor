@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F624604F-0250-46FA-852E-7B0A336D7078</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SMSMonitor</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BBBDEDD90D88A4F86E73BE7F4A438A70DB4A71BB</key>
+		<string>https://github.com/zhenghuiwin/SMSMonitor.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SMSMonitor.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BBBDEDD90D88A4F86E73BE7F4A438A70DB4A71BB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zhenghuiwin/SMSMonitor.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BBBDEDD90D88A4F86E73BE7F4A438A70DB4A71BB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BBBDEDD90D88A4F86E73BE7F4A438A70DB4A71BB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SMSMonitor</string>
+		</dict>
+	</array>
+</dict>
+</plist>

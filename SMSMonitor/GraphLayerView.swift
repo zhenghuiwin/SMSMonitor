@@ -38,6 +38,9 @@ class GraphLayerView: UIView {
       private var _lineAnimation = CABasicAnimation( keyPath: "strokeEnd" )
       var maskAnimation = CABasicAnimation( keyPath: "fillColor" )
       var gradAnimation = CABasicAnimation( keyPath: "endPoint" )
+      
+      private var _lastTouchedBarLayer: CAShapeLayer?
+      private let _touchedGrayColor = UIColor( red: 218/255, green: 218/255, blue: 218/255, alpha: 1 )
 
       private var _didSelectBarClosure: ( ( hourlyData: CGFloat, hourlyAmount: CGFloat ) -> () )?
       
@@ -77,7 +80,20 @@ class GraphLayerView: UIView {
                   var p: CGPoint = touch.locationInView( self )
                   p.y = heightTranslate - p.y
                   for var i = 0; i < _barRect.count; i++ {
-                        if CGRectContainsPoint( _barRect[ i ], p ) {
+                        
+                        var bRect = biggerRect( i )
+                        
+                        if CGRectContainsPoint( bRect, p ) {
+                              
+                              if i < _barSharpeLayers.count {
+                                    var layer = _barSharpeLayers[ i ]
+                                    layer.strokeColor = _touchedGrayColor.CGColor
+                                    if let lastTouchedLayer = _lastTouchedBarLayer {
+                                          lastTouchedLayer.strokeColor = UIColor.whiteColor().CGColor
+                                    }
+                                    _lastTouchedBarLayer = layer
+                              }
+                              
                               var hourlyData = _hourlyData[ i ]
                               var hourlyAmount = _hourlyAmount[ i ]
                               if let closure = _didSelectBarClosure {
@@ -170,15 +186,23 @@ class GraphLayerView: UIView {
       // Very import public method,it likes a main method
       func setStatisticalData( statsData sData: [CGFloat] ) {
             _hourlyData = sData
+            
             var max = maxElement( sData )
             var scale: CGFloat = maxHeight / max
             
+            let count = min( sData.count, 24 )
+            println( "min of count:\(count)" )
+            
+            // Clear the hourlyAmount
+            _hourlyAmount = [ CGFloat ]( count: count, repeatedValue: 0 )
+            
             var index = 0
-            for ; index < sData.count && index < 24; index++ {
+            for ; index < count; ++index {
+                  
                   if index == 0 || index == 12 {
-                        _hourlyAmount.append( sData[ index ] )
+                        _hourlyAmount[ index ] = sData[ index ]
                   } else {
-                        _hourlyAmount.append( sData[ index ] + _hourlyAmount[ index - 1 ] )
+                        _hourlyAmount[ index ] =  sData[ index ] + _hourlyAmount[ index - 1 ]
                   }
                   
                   
@@ -201,6 +225,7 @@ class GraphLayerView: UIView {
             _scaleOfCurve = maxHeight / maxElement( _hourlyAmount )
 //            self.setNeedsDisplay()
             self.displayGraph()
+            
       }
       
       
@@ -322,6 +347,29 @@ class GraphLayerView: UIView {
             _curveLineLayer.addAnimation( _lineAnimation, forKey: _lineAnimation.keyPath )
       }
       
+      private func setZeroValueToAllElements( inout array: Array<CGFloat> ) {
+
+            for var index = 0; index < array.count; ++index {
+                  array[index] = 0
+            }
+
+      }
+      
+      private func biggerRect( index: Int ) -> CGRect {
+            
+            if index < _timeLabelArray.count {
+                  let timeLabel = _timeLabelArray[index]
+                  let rect = timeLabel.frame
+                  return CGRect( x: rect.origin.x,
+                                 y: _barRect[index].origin.y,
+                                 width: rect.size.width,
+                                 height: _barRect[index].size.height * ( 1 + 0.3) )
+            }
+            
+            return _barRect[index]
+            
+      }
+      
       
       private func calculateClearance( widthOfSuperView w: CGFloat ) -> CGFloat {
             return ( w - 24 * widthOfTimeLabel ) / 23
@@ -373,7 +421,7 @@ class GraphLayerView: UIView {
       }
       
       
-      private func  displayBarGraph( transform: CATransform3D ) {
+      private func displayBarGraph( transform: CATransform3D ) {
             // Drawing bar graph for hourly data
             for index in 0..<_barRect.count {
                   

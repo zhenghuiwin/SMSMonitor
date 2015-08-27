@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670FAF411B8EAC780043F8C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; };
+		670FAF421B8EACC50043F8C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; };
+		670FAF431B8EACC50043F8C1 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		672170D51ADA6C730087A926 /* CVCalendarContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */; };
 		672170D61ADA6C730087A926 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C21ADA6C730087A926 /* CVCalendarContentViewController.swift */; };
 		672170D71ADA6C730087A926 /* CVCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672170C31ADA6C730087A926 /* CVCalendarDayView.swift */; };
@@ -45,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		670FAF441B8EACC50043F8C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 		677EA6B61AA4095600B6CE2C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 677EA6981AA4095600B6CE2C /* Project object */;
@@ -87,14 +97,21 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
-		67F5B04B1B8B17190015B283 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 67F5B02C1B8B15A60015B283 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DD67C0A1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		670FAF461B8EACC50043F8C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				670FAF431B8EACC50043F8C1 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				670FAF411B8EAC780043F8C1 /* Alamofire.framework in Frameworks */,
+				670FAF421B8EACC50043F8C1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +291,13 @@
 				677EA69C1AA4095600B6CE2C /* Sources */,
 				677EA69D1AA4095600B6CE2C /* Frameworks */,
 				677EA69E1AA4095600B6CE2C /* Resources */,
+				670FAF461B8EACC50043F8C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67F5B04C1B8B17190015B283 /* PBXTargetDependency */,
 				67F5B0451B8B162A0015B283 /* PBXTargetDependency */,
+				670FAF451B8EACC50043F8C1 /* PBXTargetDependency */,
 			);
 			name = SMSMonitor;
 			productName = SMSMonitor;
@@ -446,6 +466,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		670FAF451B8EACC50043F8C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 670FAF441B8EACC50043F8C1 /* PBXContainerItemProxy */;
+		};
 		677EA6B71AA4095600B6CE2C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 677EA69F1AA4095600B6CE2C /* SMSMonitor */;
@@ -455,11 +480,6 @@
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
 			targetProxy = 67F5B0441B8B162A0015B283 /* PBXContainerItemProxy */;
-		};
-		67F5B04C1B8B17190015B283 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire OSX";
-			targetProxy = 67F5B04B1B8B17190015B283 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

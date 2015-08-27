@@ -48,7 +48,7 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             get {
                   if _selectedDate == "" {
                         // today
-                        dateFormatter.dateFormat = "yyyy/MM/dd"
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
                         _selectedDate = dateFormatter.stringFromDate( NSDate() )
                   }
                   
@@ -88,8 +88,11 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             
             // TODO: TEST
             println( "selected date is \(self.selectedDate)" )
+            
+            let url = "http://114.215.125.44:9002/hd/\(self.selectedDate)"
+            println( "url is \(url)" )
 
-            Alamofire.request(.GET, "http://114.215.125.44:9002/hd")
+            Alamofire.request(.GET, url )
                   .responseJSON { _, _, JSON, _ in
 
                         if let array = JSON as? NSArray {
