@@ -150,38 +150,38 @@ class GraphView: UIView {
             }
       }
       
-      func setStatisticalData( statsData sData: [CGFloat] ) {
-            _hourlyData = sData
-            var max = maxElement( sData )
-            var scale: CGFloat = maxHeight / max
-            
-            var index = 0
-            for ; index < sData.count && index < 24; index++ {
-                  if index == 0 || index == 12 {
-                        _hourlyAmount.append( sData[ index ] )
-                  } else {
-                        _hourlyAmount.append( sData[ index ] + _hourlyAmount[ index - 1 ] )
-                  }
-                  
-                  
-                  var barHeight = sData[ index ] * scale
-                  var barViewX = barViewXAt( indexOfBarView: index )
-                  var rect = CGRect( x: barViewX, y: 0, width: barWidth, height: barHeight )
-                  if index < _barRect.count {
-                        _barRect[ index ] = rect
-                  } else {
-                        _barRect.append( rect )
-                  }
-            }
-            
-            // Clear the height of barView which dose not have correspondent value from sData
-            for ; index < _barRect.count; index++ {
-                  var rect = _barRect[ index ]
-                  _barRect[ index ] = CGRect( origin: rect.origin, size: CGSize(width: rect.width, height: 0 ) )
-            }
-            
-            _scaleOfCurve = maxHeight / maxElement( _hourlyAmount )
-            self.setNeedsDisplay()
+      func setStatisticalData( sentDataInfo sDataInfo: SentDataInfo ) {
+////            _hourlyData = sData
+//            var max = maxElement( sDataInfo.statsData! )
+//            var scale: CGFloat = maxHeight / max
+//            
+//            var index = 0
+//            for ; index < sData.count && index < 24; index++ {
+//                  if index == 0 || index == 12 {
+//                        _hourlyAmount.append( sData[ index ] )
+//                  } else {
+//                        _hourlyAmount.append( sData[ index ] + _hourlyAmount[ index - 1 ] )
+//                  }
+//                  
+//                  
+//                  var barHeight = sData[ index ] * scale
+//                  var barViewX = barViewXAt( indexOfBarView: index )
+//                  var rect = CGRect( x: barViewX, y: 0, width: barWidth, height: barHeight )
+//                  if index < _barRect.count {
+//                        _barRect[ index ] = rect
+//                  } else {
+//                        _barRect.append( rect )
+//                  }
+//            }
+//            
+//            // Clear the height of barView which dose not have correspondent value from sData
+//            for ; index < _barRect.count; index++ {
+//                  var rect = _barRect[ index ]
+//                  _barRect[ index ] = CGRect( origin: rect.origin, size: CGSize(width: rect.width, height: 0 ) )
+//            }
+//            
+//            _scaleOfCurve = maxHeight / maxElement( _hourlyAmount )
+//            self.setNeedsDisplay()
       }
 
       

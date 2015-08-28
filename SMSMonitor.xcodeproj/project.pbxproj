@@ -40,6 +40,7 @@
 		677EA6CC1AA40A2500B6CE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677EA6C81AA40A2500B6CE2C /* ViewController.swift */; };
 		677EA6CF1AA40A3200B6CE2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677EA6CD1AA40A3200B6CE2C /* Main.storyboard */; };
 		6788C8FA1AD9640A00F6611B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6788C8F91AD9640A00F6611B /* CalendarViewController.swift */; };
+		678AAD561B8F0183008428F8 /* SentDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678AAD551B8F0183008428F8 /* SentDataInfo.swift */; };
 		679B89A61AEFA172008A7EBF /* GraphLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B89A51AEFA172008A7EBF /* GraphLayerView.swift */; };
 		67AE27FF1B8C623400C991E1 /* ViewPassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */; };
 		67C2D5FF1AE40E4600EC91FD /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C2D5FE1AE40E4600EC91FD /* SharedData.swift */; };
@@ -148,6 +149,7 @@
 		677EA6C81AA40A2500B6CE2C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		677EA6CE1AA40A3200B6CE2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6788C8F91AD9640A00F6611B /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		678AAD551B8F0183008428F8 /* SentDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentDataInfo.swift; sourceTree = "<group>"; };
 		679B89A51AEFA172008A7EBF /* GraphLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphLayerView.swift; sourceTree = "<group>"; };
 		67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPassDataProtocol.swift; sourceTree = "<group>"; };
 		67C2D5FE1AE40E4600EC91FD /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				67C2D5FE1AE40E4600EC91FD /* SharedData.swift */,
 				679B89A51AEFA172008A7EBF /* GraphLayerView.swift */,
 				67AE27FE1B8C623400C991E1 /* ViewPassDataProtocol.swift */,
+				678AAD551B8F0183008428F8 /* SentDataInfo.swift */,
 			);
 			path = SMSMonitor;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				672170E81ADA6C730087A926 /* CVDate.swift in Sources */,
 				675E833A1AB48E8F00D339B2 /* BackgroundView.swift in Sources */,
 				672170D71ADA6C730087A926 /* CVCalendarDayView.swift in Sources */,
+				678AAD561B8F0183008428F8 /* SentDataInfo.swift in Sources */,
 				677EA6C91AA40A2500B6CE2C /* AppDelegate.swift in Sources */,
 				677EA6CB1AA40A2500B6CE2C /* ZHWScrollView.swift in Sources */,
 				672170DC1ADA6C730087A926 /* CVCalendarMonthView.swift in Sources */,

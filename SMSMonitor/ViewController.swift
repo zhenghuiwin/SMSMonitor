@@ -162,13 +162,13 @@ class ViewController: UIViewController, ViewPassDataProtocol {
       
       // MARK: - private method
       private func setupGraphLayerView( graphView: GraphLayerView,
-            statsData sData: [CGFloat],
+            sentDataInfo sDataInfo: SentDataInfo,
             closure: ( hourlyData: CGFloat, hourlyAmount: CGFloat ) -> () ) {
                   graphView.resize()
                   graphView.arrangeTimeLable()
                   graphView.calculateContentSize()
                   graphView.setSelectBarClosure( closure )
-                  graphView.setStatisticalData( statsData: sData )
+                  graphView.setStatisticalData( sentDataInfo: sDataInfo )
       }
       
       private func didRoateForGraphLayerView( graphView: GraphLayerView ) {
@@ -181,10 +181,12 @@ class ViewController: UIViewController, ViewPassDataProtocol {
       
       private func setDataToGraphLayerViews( company comp: Int, updateTime time: String, statsData sentData: [CGFloat] ) {
             
+            let sentDataInfo = SentDataInfo( companyType: comp, updateTime: time, statsData: sentData )
+            
             switch comp {
             case 1:
                   // Setup mobileGView
-                  self.setupGraphLayerView( mobileGView, statsData: sentData ) {
+                  self.setupGraphLayerView( mobileGView, sentDataInfo: sentDataInfo ) {
                         (hourlyData, hourlyAmount) -> () in
                         self.mobileHourlyData.text = "\(hourlyData)"
                         self.mobileHourlyAmount.text = "\(hourlyAmount)"
@@ -192,21 +194,21 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                   
             case 2:
                   // Setup unicomGView
-                  self.setupGraphLayerView( unicomGView, statsData: sentData ) {
+                  self.setupGraphLayerView( unicomGView, sentDataInfo: sentDataInfo ) {
                         (hourlyData, hourlyAmount) -> () in
                         self.unicomHourlyData.text = "\(hourlyData)"
                         self.unicomHourlyAmount.text = "\(hourlyAmount)"
                   }
             case 3:
                   // Setup telcomGView
-                  self.setupGraphLayerView( telcomGView, statsData: sentData ) {
+                  self.setupGraphLayerView( telcomGView, sentDataInfo: sentDataInfo ) {
                         (hourlyData, hourlyAmount) -> () in
                         self.telcomHourlyData.text = "\(hourlyData)"
                         self.telcomHourlyAmount.text = "\(hourlyAmount)"
                   }
             case 4:
                   // Setup mobileOwnGView
-                  self.setupGraphLayerView( mobileOwnGView, statsData: sentData ) {
+                  self.setupGraphLayerView( mobileOwnGView, sentDataInfo: sentDataInfo ) {
                         (hourlyData, hourlyAmount) -> () in
                         self.mobileOwnHourlyData.text = "\(hourlyData)"
                         self.mobileOwnHourlyAmount.text = "\(hourlyAmount)"
