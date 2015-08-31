@@ -48,7 +48,7 @@ class SentDataInfo {
                         let timeComp = ( component[1] as! NSString ).componentsSeparatedByString( ":" )
                         if timeComp.count > 0 {
                               if let hour = ( timeComp[0] as! String ).toInt() {
-                                    return hour
+                                     return hour
                               }
                         }
                   }

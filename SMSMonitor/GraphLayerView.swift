@@ -193,12 +193,10 @@ class GraphLayerView: UIView {
             var max = maxElement( sData )
             var scale: CGFloat = maxHeight / max
             
-            let count = min( sData.count, 24, sDataInfo.hourOfUpdateTime()! )
+            let count = min( sData.count, 24, sDataInfo.hourOfUpdateTime()! + 1 )
             println( "min of count:\(count)" )
             
-            // Clear the hourlyAmount
-            _hourlyAmount = [ CGFloat ]( count: count, repeatedValue: 0 )
-
+            clearStatus( count )
             
             var index = 0
             for ; index < count; ++index {
@@ -365,11 +363,12 @@ class GraphLayerView: UIView {
             if index < _timeLabelArray.count {
                   
                   let rect = _timeLabelArray[index].frame
+                  let hourOfUpdateTime = _sentDataInfo!.hourOfUpdateTime()
                   
                   return CGRect( x: rect.origin.x,
                                  y: _barRect[index].origin.y,
                                  width: rect.size.width,
-                        height: _barRect[index].size.height == 0 ? 0 : heightTranslate ) // Here,heightTanslate is only a height value,no more another meanings
+                        height:  index <= hourOfUpdateTime ? heightTranslate : 0 ) // Here,heightTanslate is only a height value,no more another meanings
             }
             
             return _barRect[index]
@@ -503,23 +502,17 @@ class GraphLayerView: UIView {
                         }
                         
                         if index > 12 {
-                              // 1 PM ~ 24 PM
+                              // 1 PM ~ 23 PM
                               linePath.addLineToPoint( curvePoint )
                               drawCurvePoint( curvePoint, thePath: circlePath )
                               maskPath.addLineToPoint( curvePoint )
-                              
-                              if index == _hourlyAmount.count - 1 {
-                                    // 24 PM
-                                    var p = curvePoint
-                                    p.y = 0
-                                    
-                                    maskPath.addLineToPoint( p )
-                                    if let afternoonFirstPoint = curvePointOfHourlyAmount(indexOfHourlyAmount: 0 ) {
-                                          p.x = afternoonFirstPoint.x
-                                          maskPath.addLineToPoint( p )
-                                          maskPath.closePath()
-                                    }
-                              }
+                        }
+                        
+                        // Close the mask path at the last point
+                        // Any point (hour) may be the last point,not noly 23PM point
+                        if index == _hourlyAmount.count - 1 {
+                              // The last point
+                              closeMaskPath( maskPath, atLastPoint: curvePoint )
                         }
                   }
             }
@@ -563,16 +556,33 @@ class GraphLayerView: UIView {
             touchedLayer.strokeColor = _touchedGrayColor.CGColor
             
             // Change color of  the last touched layer back to the white
-            if let lastTouchedLayer = _lastTouchedBarLayer {
-                  lastTouchedLayer.strokeColor = UIColor.whiteColor().CGColor
+            if let definiteTouchedBarLayer = _lastTouchedBarLayer {
+                  if definiteTouchedBarLayer != touchedLayer {
+                        definiteTouchedBarLayer.strokeColor = UIColor.whiteColor().CGColor
+                  }
             }
             
             _lastTouchedBarLayer = touchedLayer
       }
       
-      
+      private func closeMaskPath( maskPath: UIBezierPath, atLastPoint lastPoint: CGPoint ) {
+            var p = lastPoint
+            p.y = 0
+            
+            maskPath.addLineToPoint( p )
+            
+            if let firstPoint = curvePointOfHourlyAmount(indexOfHourlyAmount: 0 ) {
+                  p.x = firstPoint.x
+                  maskPath.addLineToPoint( p )
+                  maskPath.closePath()
+            }
+      }
 
-      
+      private func clearStatus( count: Int ) {
+            _hourlyAmount = [ CGFloat ]( count: count, repeatedValue: 0 )
+            _lastTouchedBarLayer?.strokeColor = UIColor.whiteColor().CGColor
+            _lastTouchedBarLayer = nil
+      }
       
       // Only override drawRect: if you perform custom drawing.
       // An empty implementation adversely affects performance during animation.
