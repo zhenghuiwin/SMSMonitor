@@ -86,15 +86,19 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             
             mainScrollView.contentSize = CGSize( width: mainScrollView.bounds.size.width, height: heightOfMainScrollView )
             
-            // TODO: TEST
-            println( "selected date is \(self.selectedDate)" )
+            // Set the default SentDataInfo for each company
+            // Because sometimes for some company, there is no corresponding statistical data
+            var dataHash: [Int : SentDataInfo] = [ 1:SentDataInfo( companyType: 1, updateTime: nil, statsData: nil ),
+                             2:SentDataInfo( companyType: 2, updateTime: nil, statsData: nil ),
+                             3:SentDataInfo( companyType: 3, updateTime: nil, statsData: nil ),
+                             4:SentDataInfo( companyType: 4, updateTime: nil, statsData: nil ) ]
+            
             
             let url = "http://114.215.125.44:9002/hd/\(self.selectedDate)"
             println( "url is \(url)" )
 
             Alamofire.request(.GET, url )
                   .responseJSON { _, _, JSON, _ in
-
                         if let array = JSON as? NSArray {
                              println( "count is \(array.count)" )
                               for hashObj in array {
@@ -102,13 +106,17 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                                           if let updateTime = hashObj["updateTime"] as? String {
                                                 if let sentData = hashObj["data"] as? Array<CGFloat> {
                                                       
-                                                      // Update the UI with data fetched from the Server
-                                                      self.setDataToGraphLayerViews( company: company, updateTime: updateTime, statsData: sentData )
+                                                      dataHash[ company ] = SentDataInfo( companyType: company, updateTime: updateTime, statsData: sentData )
                                                 }
                                           }
                                           
                                     }
                               }
+                        }
+                        
+                        for ( com, sentDataInfo ) in dataHash {
+                              // Update the UI with data fetched from the Server
+                              self.setDataToGraphLayerViews( sentDataInfo: sentDataInfo )
                         }
             }
 
@@ -179,47 +187,46 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             graphView.displayGraph()
       }
       
-      private func setDataToGraphLayerViews( company comp: Int, updateTime time: String, statsData sentData: [CGFloat] ) {
-            
-            let sentDataInfo = SentDataInfo( companyType: comp, updateTime: time, statsData: sentData )
-            
-            switch comp {
-            case 1:
-                  // Setup mobileGView
-                  self.setupGraphLayerView( mobileGView, sentDataInfo: sentDataInfo ) {
-                        (hourlyData, hourlyAmount) -> () in
-                        self.mobileHourlyData.text = "\(hourlyData)"
-                        self.mobileHourlyAmount.text = "\(hourlyAmount)"
+      private func setDataToGraphLayerViews( sentDataInfo sDataInfo: SentDataInfo ) {
+            if let definiteCompany = sDataInfo.company {
+                  switch definiteCompany {
+                  case 1:
+                        // Setup mobileGView
+                        self.setupGraphLayerView( mobileGView, sentDataInfo: sDataInfo ) {
+                              (hourlyData, hourlyAmount) -> () in
+                              self.mobileHourlyData.text = "\(hourlyData)"
+                              self.mobileHourlyAmount.text = "\(hourlyAmount)"
+                        }
+                        
+                  case 2:
+                        // Setup unicomGView
+                        self.setupGraphLayerView( unicomGView, sentDataInfo: sDataInfo ) {
+                              (hourlyData, hourlyAmount) -> () in
+                              self.unicomHourlyData.text = "\(hourlyData)"
+                              self.unicomHourlyAmount.text = "\(hourlyAmount)"
+                        }
+                  case 3:
+                        // Setup telcomGView
+                        self.setupGraphLayerView( telcomGView, sentDataInfo: sDataInfo ) {
+                              (hourlyData, hourlyAmount) -> () in
+                              self.telcomHourlyData.text = "\(hourlyData)"
+                              self.telcomHourlyAmount.text = "\(hourlyAmount)"
+                        }
+                  case 4:
+                        // Setup mobileOwnGView
+                        self.setupGraphLayerView( mobileOwnGView, sentDataInfo: sDataInfo ) {
+                              (hourlyData, hourlyAmount) -> () in
+                              self.mobileOwnHourlyData.text = "\(hourlyData)"
+                              self.mobileOwnHourlyAmount.text = "\(hourlyAmount)"
+                        }
+                  default:
+                        println( "No correspond company!" )
                   }
-                  
-            case 2:
-                  // Setup unicomGView
-                  self.setupGraphLayerView( unicomGView, sentDataInfo: sentDataInfo ) {
-                        (hourlyData, hourlyAmount) -> () in
-                        self.unicomHourlyData.text = "\(hourlyData)"
-                        self.unicomHourlyAmount.text = "\(hourlyAmount)"
-                  }
-            case 3:
-                  // Setup telcomGView
-                  self.setupGraphLayerView( telcomGView, sentDataInfo: sentDataInfo ) {
-                        (hourlyData, hourlyAmount) -> () in
-                        self.telcomHourlyData.text = "\(hourlyData)"
-                        self.telcomHourlyAmount.text = "\(hourlyAmount)"
-                  }
-            case 4:
-                  // Setup mobileOwnGView
-                  self.setupGraphLayerView( mobileOwnGView, sentDataInfo: sentDataInfo ) {
-                        (hourlyData, hourlyAmount) -> () in
-                        self.mobileOwnHourlyData.text = "\(hourlyData)"
-                        self.mobileOwnHourlyAmount.text = "\(hourlyAmount)"
-                  }
-            default:
-                  println( "No correspond company!" )
             }
             
-            
-            
       }
+
+      
       
       
       

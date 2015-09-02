@@ -90,7 +90,7 @@ class GraphLayerView: UIView {
                               }
                               
                               if let sDataInfo = _sentDataInfo {
-                                    var hourlyData = sDataInfo.statsData![ i ]
+                                    var hourlyData = sDataInfo.statsData[ i ]
                                     var hourlyAmount = _hourlyAmount[ i ]
                                     
                                     if let closure = _didSelectBarClosure {
@@ -188,13 +188,17 @@ class GraphLayerView: UIView {
             
             _sentDataInfo = sDataInfo
             
-            let sData = sDataInfo.statsData!
+            let sData = sDataInfo.statsData
             
             var max = maxElement( sData )
-            var scale: CGFloat = maxHeight / max
+            var scale: CGFloat = 0
+            if max != 0 {
+                  scale = maxHeight / max
+            }
             
             let count = min( sData.count, 24, sDataInfo.hourOfUpdateTime()! + 1 )
             println( "min of count:\(count)" )
+            
             
             clearStatus( count )
             
@@ -225,7 +229,7 @@ class GraphLayerView: UIView {
                   _barRect[ index ] = CGRect( origin: rect.origin, size: CGSize(width: rect.width, height: 0 ) )
             }
             
-            _scaleOfCurve = maxHeight / maxElement( _hourlyAmount )
+//            _scaleOfCurve = maxHeight / maxElement( _hourlyAmount )
 //            self.setNeedsDisplay()
             self.displayGraph()
             
@@ -465,6 +469,12 @@ class GraphLayerView: UIView {
             var circlePath = UIBezierPath()
             var maskPath = UIBezierPath()
             
+            _scaleOfCurve = 0
+            var maxAmount = maxElement( _hourlyAmount )
+            if maxAmount != 0 {
+                  _scaleOfCurve = maxHeight / maxAmount
+            }
+            
             for index in 0..<_hourlyAmount.count {
                   
                   if let curvePoint: CGPoint = curvePointOfHourlyAmount( indexOfHourlyAmount: index ) {
@@ -582,6 +592,10 @@ class GraphLayerView: UIView {
             _hourlyAmount = [ CGFloat ]( count: count, repeatedValue: 0 )
             _lastTouchedBarLayer?.strokeColor = UIColor.whiteColor().CGColor
             _lastTouchedBarLayer = nil
+            for var i = 0;i < _barRect.count;++i {
+                  let bRect = _barRect[i]
+                  _barRect[i] = CGRect(x: bRect.origin.x, y: bRect.origin.y, width: bRect.size.width, height: 0)
+            }
       }
       
       // Only override drawRect: if you perform custom drawing.

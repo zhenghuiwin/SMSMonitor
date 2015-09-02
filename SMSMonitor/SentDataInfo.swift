@@ -12,14 +12,19 @@ import UIKit
 class SentDataInfo {
       private var _company: Int?
       
-      private var _updateTime: NSString?
+      private var _updateTime: NSString = "2015-9-1 00:00:00"
       
-      private var _statsData: [CGFloat]?
+      private var _statsData: [CGFloat] = [CGFloat]( count: 24, repeatedValue: 0 )
       
-      init( companyType comp: Int, updateTime time: NSString, statsData sData: [CGFloat] ) {
+      init( companyType comp: Int, updateTime time: NSString?, statsData sData: [CGFloat]? ) {
             _company = comp
-            _updateTime = time
-            _statsData = sData
+            if let definiteTime = time {
+                  _updateTime = definiteTime
+            }
+            
+            if let definiteData = sData {
+                  _statsData = definiteData
+            }
       }
       
       var company: Int? {
@@ -28,13 +33,13 @@ class SentDataInfo {
             }
       }
       
-      var updateTime: NSString? {
+      var updateTime: NSString {
             get {
                   return _updateTime
             }
       }
       
-      var statsData: [CGFloat]? {
+      var statsData: [CGFloat] {
             get {
                   return _statsData
             }
@@ -42,18 +47,16 @@ class SentDataInfo {
       
       // Format of updatTime is yyyy-MM-dd hh:mm:ss
       func hourOfUpdateTime() -> Int? {
-            if let time = _updateTime {
-                  let component = time.componentsSeparatedByString( " " )
-                  if component.count == 2 {
-                        let timeComp = ( component[1] as! NSString ).componentsSeparatedByString( ":" )
-                        if timeComp.count > 0 {
-                              if let hour = ( timeComp[0] as! String ).toInt() {
-                                     return hour
-                              }
+            let component = _updateTime.componentsSeparatedByString( " " )
+            if component.count == 2 {
+                  let timeComp = ( component[1] as! NSString ).componentsSeparatedByString( ":" )
+                  if timeComp.count > 0 {
+                        if let hour = ( timeComp[0] as! String ).toInt() {
+                               return hour
                         }
                   }
             }
-            
+      
             return nil
       }
 }
