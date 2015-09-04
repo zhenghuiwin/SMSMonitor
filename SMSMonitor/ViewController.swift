@@ -26,12 +26,20 @@ class ViewController: UIViewController, ViewPassDataProtocol {
       
       @IBOutlet weak var mobileHourlyData: UILabel!
       @IBOutlet weak var mobileHourlyAmount: UILabel!
+      @IBOutlet weak var mobileUpdateTime: UILabel!
+      
       @IBOutlet weak var unicomHourlyData: UILabel!
       @IBOutlet weak var unicomHourlyAmount: UILabel!
+      @IBOutlet weak var unicomUpdateTime: UILabel!
+
+      
       @IBOutlet weak var telcomHourlyData: UILabel!
       @IBOutlet weak var telcomHourlyAmount: UILabel!
+      @IBOutlet weak var telcomUpdateTime: UILabel!
+      
       @IBOutlet weak var mobileOwnHourlyData: UILabel!
       @IBOutlet weak var mobileOwnHourlyAmount: UILabel!
+      @IBOutlet weak var mobileOwnUpdateTime: UILabel!
       
      
       @IBOutlet weak var barItem: UIBarButtonItem!
@@ -93,12 +101,17 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                              3:SentDataInfo( companyType: 3, updateTime: nil, statsData: nil ),
                              4:SentDataInfo( companyType: 4, updateTime: nil, statsData: nil ) ]
             
+            clearLabels()
+            
             
             let url = "http://114.215.125.44:9002/hd/\(self.selectedDate)"
             println( "url is \(url)" )
 
             Alamofire.request(.GET, url )
                   .responseJSON { _, _, JSON, _ in
+                        // TODO: TEST
+                        println("[GOT THE DATA FROM THE SERVER]")
+                        
                         if let array = JSON as? NSArray {
                              println( "count is \(array.count)" )
                               for hashObj in array {
@@ -198,6 +211,8 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                               self.mobileHourlyAmount.text = "\(hourlyAmount)"
                         }
                         
+                        mobileUpdateTime.text = sDataInfo.updateTime as? String
+                        
                   case 2:
                         // Setup unicomGView
                         self.setupGraphLayerView( unicomGView, sentDataInfo: sDataInfo ) {
@@ -205,6 +220,8 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                               self.unicomHourlyData.text = "\(hourlyData)"
                               self.unicomHourlyAmount.text = "\(hourlyAmount)"
                         }
+      
+                        unicomUpdateTime.text = sDataInfo.updateTime as? String
                   case 3:
                         // Setup telcomGView
                         self.setupGraphLayerView( telcomGView, sentDataInfo: sDataInfo ) {
@@ -212,6 +229,8 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                               self.telcomHourlyData.text = "\(hourlyData)"
                               self.telcomHourlyAmount.text = "\(hourlyAmount)"
                         }
+                        
+                        telcomUpdateTime.text = sDataInfo.updateTime as? String
                   case 4:
                         // Setup mobileOwnGView
                         self.setupGraphLayerView( mobileOwnGView, sentDataInfo: sDataInfo ) {
@@ -219,11 +238,30 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                               self.mobileOwnHourlyData.text = "\(hourlyData)"
                               self.mobileOwnHourlyAmount.text = "\(hourlyAmount)"
                         }
+                        mobileOwnUpdateTime.text = sDataInfo.updateTime as? String
                   default:
                         println( "No correspond company!" )
                   }
             }
             
+      }
+      
+      private func clearLabels() {
+            mobileHourlyData.text = ""
+            mobileHourlyAmount.text = ""
+            mobileUpdateTime.text = ""
+            
+            unicomHourlyData.text = ""
+            unicomHourlyAmount.text = ""
+            unicomUpdateTime.text = ""
+            
+            telcomHourlyData.text = ""
+            telcomHourlyAmount.text = ""
+            telcomUpdateTime.text = ""
+            
+            mobileOwnHourlyData.text = ""
+            mobileOwnHourlyAmount.text = ""
+            mobileOwnUpdateTime.text = ""
       }
 
       

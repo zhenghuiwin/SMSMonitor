@@ -196,7 +196,7 @@ class GraphLayerView: UIView {
                   scale = maxHeight / max
             }
             
-            let count = min( sData.count, 24, sDataInfo.hourOfUpdateTime()! + 1 )
+            let count = min( sData.count, 24, sDataInfo.hourOfUpdateTime() + 1 )
             println( "min of count:\(count)" )
             
             
@@ -470,9 +470,11 @@ class GraphLayerView: UIView {
             var maskPath = UIBezierPath()
             
             _scaleOfCurve = 0
-            var maxAmount = maxElement( _hourlyAmount )
-            if maxAmount != 0 {
-                  _scaleOfCurve = maxHeight / maxAmount
+            if _hourlyAmount.count > 0 {
+                  var maxAmount = maxElement( _hourlyAmount )
+                  if maxAmount != 0 {
+                        _scaleOfCurve = maxHeight / maxAmount
+                  }
             }
             
             for index in 0..<_hourlyAmount.count {
