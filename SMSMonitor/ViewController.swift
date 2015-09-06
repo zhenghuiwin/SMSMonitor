@@ -46,6 +46,9 @@ class ViewController: UIViewController, ViewPassDataProtocol {
       
       let dateFormatter = NSDateFormatter()
       
+      lazy var workingQueue = dispatch_queue_create("workingQueue", nil)
+      lazy var refreshControl = UIRefreshControl()
+      
       
       // The default date is today
       private var _selectedDate: String = ""
@@ -76,6 +79,12 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             
             self.navigationController!.navigationBar.barTintColor = UIColor( red: 68 / 255, green: 128 / 255, blue: 240 / 255, alpha: 1 )
             self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+            
+            
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            refreshControl.addTarget( self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged )
+            
+            self.mainScrollView.insertSubview( refreshControl, atIndex: 0 )
       
       }
       
@@ -94,45 +103,7 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             
             mainScrollView.contentSize = CGSize( width: mainScrollView.bounds.size.width, height: heightOfMainScrollView )
             
-            // Set the default SentDataInfo for each company
-            // Because sometimes for some company, there is no corresponding statistical data
-            var dataHash: [Int : SentDataInfo] = [ 1:SentDataInfo( companyType: 1, updateTime: nil, statsData: nil ),
-                             2:SentDataInfo( companyType: 2, updateTime: nil, statsData: nil ),
-                             3:SentDataInfo( companyType: 3, updateTime: nil, statsData: nil ),
-                             4:SentDataInfo( companyType: 4, updateTime: nil, statsData: nil ) ]
-            
-            clearLabels()
-            
-            
-            let url = "http://114.215.125.44:9002/hd/\(self.selectedDate)"
-            println( "url is \(url)" )
-
-            Alamofire.request(.GET, url )
-                  .responseJSON { _, _, JSON, _ in
-                        // TODO: TEST
-                        println("[GOT THE DATA FROM THE SERVER]")
-                        
-                        if let array = JSON as? NSArray {
-                             println( "count is \(array.count)" )
-                              for hashObj in array {
-                                    if let company = hashObj["company"] as? Int {
-                                          if let updateTime = hashObj["updateTime"] as? String {
-                                                if let sentData = hashObj["data"] as? Array<CGFloat> {
-                                                      
-                                                      dataHash[ company ] = SentDataInfo( companyType: company, updateTime: updateTime, statsData: sentData )
-                                                }
-                                          }
-                                          
-                                    }
-                              }
-                        }
-                        
-                        for ( com, sentDataInfo ) in dataHash {
-                              // Update the UI with data fetched from the Server
-                              self.setDataToGraphLayerViews( sentDataInfo: sentDataInfo )
-                        }
-            }
-
+            fetchSatsDataFromServer()
             
       }
 
@@ -163,6 +134,10 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             self.didRoateForGraphLayerView( telcomGView )
             
             self.didRoateForGraphLayerView( mobileOwnGView )
+      }
+      
+      func refresh(  ) {
+            self.fetchSatsDataFromServer()
       }
       
       // MARK: - ViewPassDataProtocol methods
@@ -263,11 +238,58 @@ class ViewController: UIViewController, ViewPassDataProtocol {
             mobileOwnHourlyAmount.text = ""
             mobileOwnUpdateTime.text = ""
       }
+      
+      
+      private func fetchSatsDataFromServer() {
+            clearLabels()
+            
+            // Set the default SentDataInfo for each company
+            // Because sometimes for some company, there is no corresponding statistical data
+            var dataHash: [ Int : SentDataInfo] = [ 1:SentDataInfo( companyType: 1, updateTime: nil, statsData: nil ),
+                  2:SentDataInfo( companyType: 2, updateTime: nil, statsData: nil ),
+                  3:SentDataInfo( companyType: 3, updateTime: nil, statsData: nil ),
+                  4:SentDataInfo( companyType: 4, updateTime: nil, statsData: nil ) ]
+            
+            
+            let url = "http://114.215.125.44:9002/hd/\(self.selectedDate)"
+            println( "url is \(url)" )
 
+            dispatch_async( workingQueue, { () -> Void in
+                  Alamofire.request(.GET, url )
+                        .responseJSON { _, _, JSON, _ in
+                              fetchDataWithURL( url, updateUIWithHash: dataHash, andJson: JSON )
+                  }
+            })
+      }
       
-      
-      
-      
+      private func fetchDataWithURL( url: String, updateUIWithHash hash: [ Int:SentDataInfo ], andJson JSON: AnyObject? ) {
+            // TODO: TEST
+            println("[GOT THE DATA FROM THE SERVER]")
+            var dataHash = hash
+            if let array = JSON as? NSArray {
+                  println( "count is \(array.count)" )
+                  for hashObj in array {
+                        if let company = hashObj["company"] as? Int {
+                              if let updateTime = hashObj["updateTime"] as? String {
+                                    if let sentData = hashObj["data"] as? Array<CGFloat> {
+                                          dataHash[ company ] = SentDataInfo( companyType: company,
+                                                updateTime: updateTime,
+                                                statsData: sentData )
+                                    }
+                              }
+                              
+                        }
+                  }
+            }
+            
+            for ( com, sentDataInfo ) in dataHash {
+                  // Update the UI with data fetched from the Server
+                  dispatch_async( dispatch_get_main_queue(), { () -> Void in
+                        self.refreshControl.endRefreshing()
+                        self.setDataToGraphLayerViews( sentDataInfo: sentDataInfo )
+                  })
+            }
+      } 
 
 }
 
