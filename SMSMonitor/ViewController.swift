@@ -11,7 +11,7 @@ import Alamofire
 
 class ViewController: UIViewController, ViewPassDataProtocol {
 
-      let heightOfMainScrollView: CGFloat = 1260
+      let heightOfMainScrollView: CGFloat = 1108 //1260
       
       @IBOutlet weak var mainScrollView: UIScrollView!
       @IBOutlet weak var mobileBgView: BackgroundView!
@@ -182,8 +182,13 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                         // Setup mobileGView
                         self.setupGraphLayerView( mobileGView, sentDataInfo: sDataInfo ) {
                               (hourlyData, hourlyAmount) -> () in
-                              self.mobileHourlyData.text = "\(hourlyData)"
-                              self.mobileHourlyAmount.text = "\(hourlyAmount)"
+                              
+                              let processedHourlyData = self.parseData( hourlyData )
+                              let processedHourlyAmount = self.parseData( hourlyAmount )
+                              
+                              
+                              self.mobileHourlyData.text = "\(processedHourlyData)"
+                              self.mobileHourlyAmount.text = "\(processedHourlyAmount)"
                         }
                         
                         mobileUpdateTime.text = sDataInfo.updateTime as? String
@@ -192,8 +197,12 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                         // Setup unicomGView
                         self.setupGraphLayerView( unicomGView, sentDataInfo: sDataInfo ) {
                               (hourlyData, hourlyAmount) -> () in
-                              self.unicomHourlyData.text = "\(hourlyData)"
-                              self.unicomHourlyAmount.text = "\(hourlyAmount)"
+                              
+                              let processedHourlyData = self.parseData( hourlyData )
+                              let processedHourlyAmount = self.parseData( hourlyAmount )
+                              
+                              self.unicomHourlyData.text = "\(processedHourlyData)"
+                              self.unicomHourlyAmount.text = "\(processedHourlyAmount)"
                         }
       
                         unicomUpdateTime.text = sDataInfo.updateTime as? String
@@ -201,8 +210,12 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                         // Setup telcomGView
                         self.setupGraphLayerView( telcomGView, sentDataInfo: sDataInfo ) {
                               (hourlyData, hourlyAmount) -> () in
-                              self.telcomHourlyData.text = "\(hourlyData)"
-                              self.telcomHourlyAmount.text = "\(hourlyAmount)"
+                              
+                              let processedHourlyData = self.parseData( hourlyData )
+                              let processedHourlyAmount = self.parseData( hourlyAmount )
+                              
+                              self.telcomHourlyData.text = "\(processedHourlyData)"
+                              self.telcomHourlyAmount.text = "\(processedHourlyAmount)"
                         }
                         
                         telcomUpdateTime.text = sDataInfo.updateTime as? String
@@ -210,8 +223,12 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                         // Setup mobileOwnGView
                         self.setupGraphLayerView( mobileOwnGView, sentDataInfo: sDataInfo ) {
                               (hourlyData, hourlyAmount) -> () in
-                              self.mobileOwnHourlyData.text = "\(hourlyData)"
-                              self.mobileOwnHourlyAmount.text = "\(hourlyAmount)"
+                              
+                              let processedHourlyData = self.parseData( hourlyData )
+                              let processedHourlyAmount = self.parseData( hourlyAmount )
+                              
+                              self.mobileOwnHourlyData.text = "\(processedHourlyData)"
+                              self.mobileOwnHourlyAmount.text = "\(processedHourlyAmount)"
                         }
                         mobileOwnUpdateTime.text = sDataInfo.updateTime as? String
                   default:
@@ -289,7 +306,50 @@ class ViewController: UIViewController, ViewPassDataProtocol {
                         self.setDataToGraphLayerViews( sentDataInfo: sentDataInfo )
                   })
             }
-      } 
+      }
+      
+      private func parseData( data: CGFloat ) -> String {
+            var dataStr = NSString( format: "%f", data ) as String
+            
+            let dataArr = dataStr.componentsSeparatedByString( "." )
+            var integerPortion = dataArr[0]
+            
+            // Processing the portion of integer of data
+            var count = 0
+            for var index = integerPortion.endIndex.predecessor();
+                  index >= integerPortion.startIndex;
+                  index = index.predecessor() {
+                        if ++count == 3 && index > integerPortion.startIndex {
+                              integerPortion.insert( ",", atIndex: index )
+                              count = 0
+                        }
+                        
+                        if index == integerPortion.startIndex {
+                              break
+                        }    
+            }
+            
+            var result = integerPortion
+            
+            // Processing the portion of fractional of data
+            var fractionalPortion = ""
+            if dataArr.count >= 2 {
+                  fractionalPortion = dataArr[1]
+                  var availableIndex = fractionalPortion.startIndex
+                  for var i = fractionalPortion.endIndex.predecessor();
+                        i > fractionalPortion.startIndex;
+                        i = i.predecessor() {
+                              if  fractionalPortion[i] != "0" {
+                                    availableIndex = i
+                                    break
+                              }
+                  }
+                  
+                  result += "." + fractionalPortion.substringWithRange( Range<String.Index>( start: fractionalPortion.startIndex, end: availableIndex.successor() ) )
+            }
+            
+            return result
+      }
 
 }
 

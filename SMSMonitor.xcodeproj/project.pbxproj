@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670F8C8A1B9E8A6100ECD5D7 /* more24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 670F8C891B9E8A6100ECD5D7 /* more24x24.png */; };
+		670F8C8F1B9EFE8E00ECD5D7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670F8C8E1B9EFE8E00ECD5D7 /* AboutViewController.swift */; };
+		670F8C911BA11DE200ECD5D7 /* coming-soon.png in Resources */ = {isa = PBXBuildFile; fileRef = 670F8C901BA11DE200ECD5D7 /* coming-soon.png */; };
 		670FAF411B8EAC780043F8C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; };
 		670FAF421B8EACC50043F8C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; };
 		670FAF431B8EACC50043F8C1 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B0341B8B15A60015B283 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -115,6 +118,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		670F8C891B9E8A6100ECD5D7 /* more24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more24x24.png; sourceTree = "<group>"; };
+		670F8C8E1B9EFE8E00ECD5D7 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ../AboutViewController.swift; sourceTree = "<group>"; };
+		670F8C901BA11DE200ECD5D7 /* coming-soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coming-soon.png"; sourceTree = "<group>"; };
 		672170C11ADA6C730087A926 /* CVCalendarContentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentDelegate.swift; sourceTree = "<group>"; };
 		672170C21ADA6C730087A926 /* CVCalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentViewController.swift; sourceTree = "<group>"; };
 		672170C31ADA6C730087A926 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayView.swift; sourceTree = "<group>"; };
@@ -227,6 +233,8 @@
 		677EA6A21AA4095600B6CE2C /* SMSMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				670F8C901BA11DE200ECD5D7 /* coming-soon.png */,
+				670F8C8E1B9EFE8E00ECD5D7 /* AboutViewController.swift */,
 				672170C01ADA6C730087A926 /* CVCalendar */,
 				677EA6CD1AA40A3200B6CE2C /* Main.storyboard */,
 				675E83391AB48E8F00D339B2 /* BackgroundView.swift */,
@@ -247,6 +255,7 @@
 		677EA6A31AA4095600B6CE2C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				670F8C891B9E8A6100ECD5D7 /* more24x24.png */,
 				67D626051ACDA6C100551E6A /* refresh24x24.png */,
 				67D626031ACDA64600551E6A /* cal24x24.png */,
 				677EA6AE1AA4095600B6CE2C /* LaunchScreen.xib */,
@@ -405,8 +414,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				677EA6CF1AA40A3200B6CE2C /* Main.storyboard in Resources */,
+				670F8C911BA11DE200ECD5D7 /* coming-soon.png in Resources */,
 				677EA6B01AA4095600B6CE2C /* LaunchScreen.xib in Resources */,
 				67D626041ACDA64600551E6A /* cal24x24.png in Resources */,
+				670F8C8A1B9E8A6100ECD5D7 /* more24x24.png in Resources */,
 				67D626061ACDA6C100551E6A /* refresh24x24.png in Resources */,
 				677EA6AD1AA4095600B6CE2C /* Images.xcassets in Resources */,
 			);
@@ -434,6 +445,7 @@
 				677EA6CB1AA40A2500B6CE2C /* ZHWScrollView.swift in Sources */,
 				672170DC1ADA6C730087A926 /* CVCalendarMonthView.swift in Sources */,
 				672170DB1ADA6C730087A926 /* CVCalendarMonthContentView.swift in Sources */,
+				670F8C8F1B9EFE8E00ECD5D7 /* AboutViewController.swift in Sources */,
 				6788C8FA1AD9640A00F6611B /* CalendarViewController.swift in Sources */,
 				677EA6CC1AA40A2500B6CE2C /* ViewController.swift in Sources */,
 				672170E11ADA6C730087A926 /* CVCalendarViewAppearance.swift in Sources */,

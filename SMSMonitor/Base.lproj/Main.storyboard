@@ -100,7 +100,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djG-ey-Jd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="86"/>
+            <point key="canvasLocation" x="1745" y="668"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="5Bs-Bk-2Fs">
+            <objects>
+                <viewController id="ARx-0q-M2Z" customClass="AboutViewController" customModule="SMSMonitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vcO-zI-1QM"/>
+                        <viewControllerLayoutGuide type="bottom" id="TFD-yE-n5n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TII-pv-kWG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAh-rg-JYb">
+                                <rect key="frame" x="161" y="165" width="278" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="278" id="9Hy-fQ-JRg"/>
+                                    <constraint firstAttribute="height" constant="270" id="IQC-8e-CTe"/>
+                                </constraints>
+                                <state key="normal" image="coming-soon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openEmail:" destination="ARx-0q-M2Z" eventType="touchUpInside" id="kN9-zw-h4i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jAh-rg-JYb" firstAttribute="centerY" secondItem="TII-pv-kWG" secondAttribute="centerY" id="BDV-u6-dMT"/>
+                            <constraint firstAttribute="centerX" secondItem="jAh-rg-JYb" secondAttribute="centerX" id="Ycm-5Y-spF"/>
+                            <constraint firstItem="jAh-rg-JYb" firstAttribute="top" secondItem="vcO-zI-1QM" secondAttribute="bottom" constant="101" id="jPi-GU-2Sd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jPi-GU-2Sd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="I9j-R1-H4B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hoh-2X-YqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="-89"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -118,7 +162,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="625"/>
                                 <subviews>
                                     <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g23-YW-3CM">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1260"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1203"/>
                                         <subviews>
                                             <view tag="210" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bt8-vk-cdc" customClass="BackgroundView" customModule="SMSMonitor" customModuleProvider="target">
                                                 <rect key="frame" x="6" y="6" width="588" height="260"/>
@@ -628,7 +672,7 @@
                                             <constraint firstItem="7Q2-cg-LUK" firstAttribute="top" secondItem="Bt8-vk-cdc" secondAttribute="bottom" constant="80" id="mnT-q7-c9u"/>
                                             <constraint firstAttribute="bottom" secondItem="aob-No-0JB" secondAttribute="bottom" constant="8" id="oCl-Tf-eLc"/>
                                             <constraint firstItem="Bt8-vk-cdc" firstAttribute="leading" secondItem="g23-YW-3CM" secondAttribute="leading" constant="6" id="pxU-WF-fDp"/>
-                                            <constraint firstAttribute="height" constant="1260" id="rTc-Rz-okz"/>
+                                            <constraint firstAttribute="height" constant="1203" id="rTc-Rz-okz"/>
                                             <constraint firstItem="Bt8-vk-cdc" firstAttribute="top" secondItem="g23-YW-3CM" secondAttribute="top" constant="6" id="ysU-Fi-Qyf"/>
                                         </constraints>
                                         <variation key="default">
@@ -644,7 +688,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="g23-YW-3CM" secondAttribute="trailing" id="1I7-oH-daR"/>
-                                    <constraint firstAttribute="bottom" secondItem="g23-YW-3CM" secondAttribute="bottom" constant="-660" id="7ZK-vn-yZr"/>
+                                    <constraint firstAttribute="bottom" secondItem="g23-YW-3CM" secondAttribute="bottom" constant="-578" id="7ZK-vn-yZr"/>
                                     <constraint firstItem="g23-YW-3CM" firstAttribute="centerX" secondItem="jzk-06-Xkc" secondAttribute="centerX" id="IOy-WH-MZP"/>
                                     <constraint firstItem="g23-YW-3CM" firstAttribute="top" secondItem="jzk-06-Xkc" secondAttribute="top" id="S7f-h3-6zb"/>
                                     <constraint firstItem="g23-YW-3CM" firstAttribute="leading" secondItem="jzk-06-Xkc" secondAttribute="leading" id="Ua0-Da-C8t"/>
@@ -676,9 +720,12 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ECC-O0-avz">
                                 <rect key="frame" x="451" y="7" width="79" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="refresh24x24.png">
+                                <state key="normal" image="more24x24.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ARx-0q-M2Z" kind="show" id="5yM-eC-hr8"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -731,6 +778,7 @@
     </scenes>
     <resources>
         <image name="cal24x24.png" width="24" height="24"/>
-        <image name="refresh24x24.png" width="24" height="24"/>
+        <image name="coming-soon.png" width="256" height="256"/>
+        <image name="more24x24.png" width="24" height="24"/>
     </resources>
 </document>
